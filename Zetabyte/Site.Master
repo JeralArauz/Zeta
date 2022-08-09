@@ -1,0 +1,232 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Zetabyte.SiteMaster" %>
+
+<%@ Register Assembly="DevExpress.Web.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zetabyte</title>
+    <script src="Scripts/jquery.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.min.js"></script>
+
+    <style>
+        .item {
+            padding-right: 15px;
+        }
+
+        .subitem {
+            padding-left: 10px;
+            padding-right: 5px;
+        }
+
+        #main {
+            /*background-color:lightsteelblue;*/
+        }
+
+        .main {
+            margin-bottom: 50px;
+            background-color: lightsteelblue;
+        }
+
+        .navbar-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar-nav .dropdown-menu a {
+            color: black;
+        }
+
+        .navbar-nav .dropdown-menu li:hover {
+            background-color: lightgray;
+        }
+
+        .dropdown-item.active {
+            background-color: cornflowerblue;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 767px) {
+            .top-menu {
+                top: 6px;
+                right: 52px;
+                width: 100%;
+            }
+
+                .top-menu > .navbar-nav > li {
+                    float: none !important;
+                }
+        }
+
+        @media (min-width: 768px) {
+            .top-menu {
+                margin-right: -15px;
+            }
+
+            .top-auth-menu {
+                margin-left: auto;
+            }
+        }
+    </style>
+    <asp:ContentPlaceHolder runat="server" ID="head"></asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        var myVar;
+        var state = false;
+        function Iniciar_Recuento_Sesion() {
+
+            if (state == false) {
+                clearTimeout(myVar);
+                myVar = setTimeout(function () {
+                    btn_finalizar_sesion.DoClick();
+                }, 1800000);
+            }
+        }
+
+        function Detect_keypress(event) {
+            var key = event.keyCode || event.which;
+            if (key > 0) {
+                Iniciar_Recuento_Sesion();
+            }
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function logclic(s, e) {
+            if (bstLoginUser.GetText() != '' && bstLoginPassword.GetText() != '') {
+
+            }
+            else {
+                lblMensaje.SetText('Debe ingresar su Usuario y Contraseña.');
+                e.processOnServer = false;
+            }
+
+        }
+
+        function LoginClic() {
+            var charCode = event.which || event.keyCode
+            if (charCode == 13) {
+                event.returnValue = false;
+
+            }
+        }
+
+        function OnInit(s, e) {
+            ASPxClientUtils.AttachEventToElement(s.GetMainElement(), "mousedown", function (event) {
+                bstLoginPassword.GetInputElement().setAttribute("type", "text");
+            });
+
+            ASPxClientUtils.AttachEventToElement(s.GetMainElement(), "mouseup", function (event) {
+                bstLoginPassword.GetInputElement().setAttribute("type", "password");
+            });
+        }
+
+    </script>
+</head>
+<body onkeypress="Detect_keypress(event)" onmousemove="Iniciar_Recuento_Sesion()" onload="Iniciar_Recuento_Sesion()">
+    <form runat="server">
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-image: linear-gradient(rgb(1 34 51), rgb(1 34 51))">
+            <div class="container" style="max-width: 100%;">
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topMenu" aria-controls="topMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href='<%= ResolveUrl("~/Default.aspx") %>' style="font-size: xx-large">Zetabyte</a>
+                </div>
+                <div class="collapse navbar-collapse" id="topMenu">
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                            <dx:BootstrapMenu ID="ASPxMenu_SICINFO" runat="server" ClientInstanceName="Menu_SICINFO" AllowSelectItem="true"
+                                EnableTheming="true" SyncSelectionMode="CurrentPath"
+                                ShowPopOutImages="True"
+                                Width="1052px" Style="margin-left: 6px">
+                                <CssClasses Control="top-menu" Menu="navbar-nav" MenuItem="item" SubMenuItem="dropdown-item" />
+                                <Items>
+                                    <dx:BootstrapMenuItem Text="Sistema" IconCssClass="fa fa-user-circle fa-2x">
+                                        <Items>
+                                            <dx:BootstrapMenuItem Text="Cambiar Contraseña">
+                                            </dx:BootstrapMenuItem>
+                                            <dx:BootstrapMenuItem Text="Salir">
+                                            </dx:BootstrapMenuItem>
+                                        </Items>
+
+
+                                    </dx:BootstrapMenuItem>
+                                    <dx:BootstrapMenuItem Text="Catálogos" Name="Catalogos" IconCssClass="fa fa-book fa-2x">
+                                        <Items>
+                                            <dx:BootstrapMenuItem Name="Cat_Marca" Text="Marca" NavigateUrl="~/Catálogos/Marcas.aspx"></dx:BootstrapMenuItem>
+
+                                            <dx:BootstrapMenuItem Name="Cat_Modelo" Text="Modelo" NavigateUrl="~/Catálogos/Modelos.aspx"></dx:BootstrapMenuItem>
+
+                                            <dx:BootstrapMenuItem Name="TipoArticulos" Text="Tipo Artículos" NavigateUrl="~/Catálogos/TipoArtículos.aspx"></dx:BootstrapMenuItem>
+
+                                            <dx:BootstrapMenuItem Name="Colores" Text="Colores" NavigateUrl="~/Catálogos/Colores.aspx"></dx:BootstrapMenuItem>
+
+                                        </Items>
+                                    </dx:BootstrapMenuItem>
+
+                                    <dx:BootstrapMenuItem Name="Procesos" Text="Procesos" IconCssClass="fa fa-cogs fa-2x">
+                                        <Items>
+                                            <dx:BootstrapMenuItem Name="Inventario" Text="Inventario" NavigateUrl="Procesos/Inventario.aspx"></dx:BootstrapMenuItem>
+                                            <dx:BootstrapMenuItem Name="Altas" Text="Alta de Equipos" NavigateUrl="Procesos/Altas/Altas.aspx"></dx:BootstrapMenuItem>
+                                        </Items>
+
+                                    </dx:BootstrapMenuItem>
+
+                                </Items>
+                            </dx:BootstrapMenu>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+        </nav>
+        <div class="container" id="main" style="max-width: 100%; text-align: -webkit-center; padding-top: 2%;">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="fixed-bottom text-center" style="width: 100%; color: white; background-image: linear-gradient(rgb(1, 42, 63), rgb(1, 42, 63))">
+                <p>&copy; <%: DateTime.Now.Year %> - Ministerio de Energía y Minas</p>
+            </div>
+        </div>
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+            <ContentTemplate>
+                <dx:ASPxButton ID="ASPxButton_Finalizar_Sesion" runat="server" ClientInstanceName="btn_finalizar_sesion" ClientVisible="False" Text="ASPxButton" AutoPostBack="False" OnClick="ASPxButton_Finalizar_Sesion_Click">
+                </dx:ASPxButton>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <script>
+
+            <%--if (!getCookie('NombreUsuario'))
+                window.location.href = "<%=ResolveUrl("~/Account/Login.aspx")%>";
+
+
+            function getCookie(cname) {
+                let name = cname + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }--%>
+        </script>
+    </form>
+</body>
+</html>
