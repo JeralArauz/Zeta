@@ -7,13 +7,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
      <div class="row card-header justify-content-center font-weight-bold main">EQUIPOS REGISTRADOS</div>
         <div class="row">
-            <div class="col-md-12" style="padding-left:35px;padding-right:35px; top: -38px; left: -11px; margin-top: 0px;">
+            <div class="col-md-12" style="padding-left:200px;padding-right:200px; top: -38px; left: -11px; margin-top: 0px;">
                 <asp:UpdatePanel ID="UdpGrid" runat="server">
                     <ContentTemplate>
                         <dx:ASPxGridView ID="GridViewInventario" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceInventario" EnableCallBacks="False" EnableTheming="True" KeyFieldName="IdEquipo" Theme="Material" OnRowUpdating="GridViewInventario_RowUpdating" OnStartRowEditing="GridViewInventario_StartRowEditing">
+                            <SettingsAdaptivity AdaptiveColumnPosition="Left" AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800">
+                            </SettingsAdaptivity>
                             <SettingsEditing Mode="PopupEditForm">
                             </SettingsEditing>
                             <Settings HorizontalScrollBarMode="Visible" />
+                            <SettingsBehavior AllowSelectByRowClick="True" SortMode="DisplayText" />
                             <SettingsPopup>
                                 <EditForm CloseOnEscape="True" HorizontalAlign="WindowCenter" VerticalAlign="WindowCenter" Width="800px">
                                 </EditForm>
@@ -38,7 +41,7 @@
                                 <dx:GridViewDataTextColumn FieldName="Color" VisibleIndex="8" Width="100px">
                                     <EditFormSettings Visible="False" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="NumeroInventario" VisibleIndex="16" Width="100px">
+                                <dx:GridViewDataTextColumn FieldName="NumeroInventario" VisibleIndex="16" Width="100px" Caption="N Inventario">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="IdAltaEquipos" Visible="False" VisibleIndex="18">
                                 </dx:GridViewDataTextColumn>

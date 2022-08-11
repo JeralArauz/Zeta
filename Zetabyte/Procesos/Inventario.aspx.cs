@@ -34,6 +34,10 @@ namespace Zetabyte.Procesos
                 Equipo.IdMarca = Convert.ToInt32(e.NewValues["IdMarca"]);
                 Equipo.IdModelo = Convert.ToInt32(e.NewValues["IdModelo"]);
                 Equipo.IdColor = Convert.ToInt32(e.NewValues["IdColor"]);
+                Equipo.Procesador = (string)(e.NewValues["Procesador"] ?? "");
+                Equipo.Almacenamiento = (string)(e.NewValues["Almacenamiento"] ?? "");
+                Equipo.RAM = (string)(e.NewValues["RAM"] ?? "");
+                Equipo.DireccionIP = (string)(e.NewValues["DireccionIP"] ?? "");
                 Equipo.Costo = Convert.ToDouble(e.NewValues["Costo"] ?? 0.00);
                 Equipo.FechaAdquisicion = Convert.ToDateTime(e.NewValues["FechaAdquisicion"].ToString());
                 Equipo.Observaciones = (string)(e.NewValues["Observaciones"] ?? "");

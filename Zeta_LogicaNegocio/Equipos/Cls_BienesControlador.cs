@@ -23,6 +23,10 @@ namespace Zeta_LogicaNegocio.Equipos
             AgregarParametroProcedimiento("@IdTipoArticulo", SqlDbType.Int, Bien.IdTipoArticulo);
             AgregarParametroProcedimiento("@IdModelo", SqlDbType.Int, Bien.IdModelo);
             AgregarParametroProcedimiento("@IdColor", SqlDbType.Int, Bien.IdColor);
+            AgregarParametroProcedimiento("@Procesador", SqlDbType.NVarChar, Bien.Procesador);
+            AgregarParametroProcedimiento("@Almacenamiento", SqlDbType.NVarChar, Bien.Almacenamiento);
+            AgregarParametroProcedimiento("@RAM", SqlDbType.NVarChar, Bien.RAM);
+            AgregarParametroProcedimiento("@DireccionIP", SqlDbType.NVarChar, Bien.DireccionIP);
             AgregarParametroProcedimiento("@Costo", SqlDbType.Int, Bien.Costo);
             AgregarParametroProcedimiento("@Numeroserie", SqlDbType.NVarChar, Bien.NumeroSerie);
             AgregarParametroProcedimiento("@NumeroInventario", SqlDbType.NVarChar, Bien.NumeroInventario);

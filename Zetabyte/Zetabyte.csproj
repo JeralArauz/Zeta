@@ -121,6 +121,7 @@
     <Content Include="Catálogos\Colores.aspx" />
     <Content Include="Catálogos\Marcas.aspx" />
     <Content Include="Catálogos\Modelos.aspx" />
+    <Content Include="Catálogos\Personal.aspx" />
     <Content Include="Catálogos\TipoArtículos.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -234,6 +235,13 @@
     </Compile>
     <Compile Include="Catálogos\Modelos.aspx.designer.cs">
       <DependentUpon>Modelos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catálogos\Personal.aspx.cs">
+      <DependentUpon>Personal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catálogos\Personal.aspx.designer.cs">
+      <DependentUpon>Personal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catálogos\TipoArtículos.aspx.cs">
       <DependentUpon>TipoArtículos.aspx</DependentUpon>
