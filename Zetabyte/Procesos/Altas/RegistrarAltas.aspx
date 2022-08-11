@@ -142,7 +142,7 @@
         <div class="col-md-12" style="padding-left: 35px; padding-right: 35px; top: -38px; left: -11px; margin-top: 0px;">
             <asp:UpdatePanel ID="UdpGrid" runat="server">
                 <ContentTemplate>
-                    <dx:ASPxGridView ID="GridViewAltas" runat="server" Theme="Material" AutoGenerateColumns="False" DataSourceID="SqlDataSourceInventario" EnableCallBacks="False" KeyFieldName="IdEquipo" Width="1425px" OnCommandButtonInitialize="GridViewAltas_CommandButtonInitialize" OnRowDeleting="GridViewAltas_RowDeleting" OnRowInserting="GridViewAltas_RowInserting">
+                    <dx:ASPxGridView ID="GridViewAltas" runat="server" Theme="Material" AutoGenerateColumns="False" DataSourceID="SqlDataSourceInventario" EnableCallBacks="False" KeyFieldName="IdEquipo" Width="1425px" OnCommandButtonInitialize="GridViewAltas_CommandButtonInitialize" OnRowDeleting="GridViewAltas_RowDeleting" OnRowInserting="GridViewAltas_RowInserting" OnStartRowEditing="GridViewAltas_StartRowEditing">
                         <SettingsEditing Mode="PopupEditForm">
                         </SettingsEditing>
                         <SettingsBehavior ConfirmDelete="True" />
@@ -186,6 +186,17 @@
                             </dx:GridViewDataComboBoxColumn>
                             <dx:GridViewDataTextColumn FieldName="NumeroInventario" ShowInCustomizationForm="True" VisibleIndex="4">
                             </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataTextColumn FieldName="Procesador" Visible="False" VisibleIndex="12">
+                            </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataTextColumn FieldName="Almacenamiento" Visible="False" VisibleIndex="13">
+                                <EditFormSettings Visible="False" />
+                            </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataTextColumn FieldName="RAM" Visible="False" VisibleIndex="14">
+                                <EditFormSettings Visible="False" />
+                            </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataTextColumn FieldName="DireccionIP" Visible="False" VisibleIndex="15">
+                                <EditFormSettings Visible="False" />
+                            </dx:GridViewDataTextColumn>
                         </Columns>
                         <Styles>
                             <Header BackColor="#00283C" Font-Bold="True" ForeColor="White">
@@ -193,7 +204,7 @@
                         </Styles>
                     </dx:ASPxGridView>
                     <asp:SqlDataSource ID="SqlDataSourceInventario" runat="server" ConnectionString="<%$ ConnectionStrings:BaseDatosSistema %>" SelectCommand="SELECT b.IdEquipo, b.Descripcion, b.NumeroInventario,b.IdTipoEquipo, m.IdMarca, b.IdModelo, b.IdColor, 
-b.Costo, b.NumeroSerie, b.FechaAdquisicion,
+b.Procesador, b.Almacenamiento, b.RAM, b.DireccionIP, b.Costo, b.NumeroSerie, b.FechaAdquisicion,
 b.Observaciones
 FROM Equipos b LEFT JOIN Modelos m on b.IdModelo = m.IdModelo
 WHERE (IdAltaEquipos = @IdAlta)

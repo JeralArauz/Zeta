@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zeta_Datos.Equipos
 {
-    public class Cls_Bien
+    public class Cls_Equipo
     {
         private int _IdEquipo;
         public int IdEquipo
@@ -77,6 +77,33 @@ namespace Zeta_Datos.Equipos
         {
             get { return _NumeroInventario; }
             set { _NumeroInventario = value; }
+        }
+
+        private string _Procesador;
+        public string Procesador
+        {
+            get { return _Procesador; }
+            set { _Procesador = value; }
+        }
+
+        private string _Almacenamiento;
+        public string Almacenamiento
+        {
+            get { return _Almacenamiento; }
+            set { _Almacenamiento = value; }
+        }
+
+        private string _RAM;
+        public string RAM
+        {
+            get { return _RAM; }
+            set { _RAM = value; }
+        }
+        private string _DireccionIP;
+        public string DireccionIP
+        {
+            get { return _DireccionIP; }
+            set { _DireccionIP = value; }
         }
 
         private Double _Costo;

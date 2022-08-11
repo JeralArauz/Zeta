@@ -25,7 +25,7 @@ namespace Zetabyte.Procesos
             try
             {
                 e.Cancel = true;
-                Cls_Bien Equipo = new Cls_Bien();
+                Cls_Equipo Equipo = new Cls_Equipo();
                 Equipo.IdEquipo = Convert.ToInt32(e.Keys["IdEquipo"]);
                 Equipo.Descripcion = (string)(e.NewValues["Descripcion"] ?? "");
                 Equipo.NumeroSerie = (string)(e.NewValues["NumeroSerie"] ?? "");

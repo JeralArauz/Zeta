@@ -13,7 +13,7 @@ namespace Zeta_LogicaNegocio.Equipos
     {
         Cls_General FG = new Cls_General();
         #region::::::::::::::::::::::BIENES:::::::::::::::::::::::::::::
-        public void ActualizarEquipo(Cls_Bien Bien, string IdentityUser, string UUA)
+        public void ActualizarEquipo(Cls_Equipo Bien, string IdentityUser, string UUA)
         {
             /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
             IniciarProcedimiento("SP_ActualizarEquipo");
@@ -33,7 +33,7 @@ namespace Zeta_LogicaNegocio.Equipos
             /*EJECUTAMOS EL PROCEDIMIENTO*/
             EjecutarProcedimiento();
         }
-        public void BienEliminar(Cls_Bien Bien, string IdentityUser, string UUA)
+        public void BienEliminar(Cls_Equipo Bien, string IdentityUser, string UUA)
         {
             /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
             IniciarProcedimiento("SP_EliminarEquipoAlta");
@@ -236,7 +236,7 @@ namespace Zeta_LogicaNegocio.Equipos
 
             return Retorno;
         }
-        public void EquipoAgregarAlta(Cls_Bien Bien, string IdentityUser, string UUA)
+        public void EquipoAgregarAlta(Cls_Equipo Bien, string IdentityUser, string UUA)
         {
             /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
             IniciarProcedimiento("SP_EquipoAgregarAlta");
@@ -249,6 +249,10 @@ namespace Zeta_LogicaNegocio.Equipos
             AgregarParametroProcedimiento("@IdTipoArticulo", SqlDbType.Int, Bien.IdTipoArticulo);
             AgregarParametroProcedimiento("@IdModelo", SqlDbType.Int, Bien.IdModelo);
             AgregarParametroProcedimiento("@IdColor", SqlDbType.Int, Bien.IdColor);
+            AgregarParametroProcedimiento("@Procesador", SqlDbType.NVarChar, Bien.Procesador);
+            AgregarParametroProcedimiento("@Almacenamiento", SqlDbType.NVarChar, Bien.Almacenamiento);
+            AgregarParametroProcedimiento("@RAM", SqlDbType.NVarChar, Bien.RAM);
+            AgregarParametroProcedimiento("@DireccionIP", SqlDbType.NVarChar, Bien.DireccionIP);
             AgregarParametroProcedimiento("@FechaAdquisicion", SqlDbType.DateTime, Bien.FechaAdquisicion);
             AgregarParametroProcedimiento("@Costo", SqlDbType.Float, Bien.Costo);
             AgregarParametroProcedimiento("@Observaciones", SqlDbType.NVarChar, Bien.Observaciones);

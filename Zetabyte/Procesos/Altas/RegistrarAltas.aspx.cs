@@ -1,4 +1,5 @@
 ﻿using ACTIVOFIJO_GENERAL;
+using DevExpress.Web;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -208,7 +209,7 @@ namespace Zetabyte.Procesos.Altas
             try
             {
                 e.Cancel = true;
-                Cls_Bien Bien = new Cls_Bien();
+                Cls_Equipo Bien = new Cls_Equipo();
                
                 Bien.IdEquipo = 0;
                 Bien.IDAlta = Convert.ToInt32(Session["IdAlta"]);
@@ -218,6 +219,10 @@ namespace Zetabyte.Procesos.Altas
                 Bien.IdTipoArticulo = Convert.ToInt32(e.NewValues["IdTipoEquipo"]);
                 Bien.IdModelo = Convert.ToInt32(e.NewValues["IdModelo"]);
                 Bien.IdColor = Convert.ToInt32(e.NewValues["IdColor"]);
+                Bien.Procesador = (string)e.NewValues["Procesador"] ?? "";
+                Bien.Almacenamiento = (string)e.NewValues["Almacenamiento"] ?? "";
+                Bien.RAM = (string)e.NewValues["RAM"] ?? "";
+                Bien.DireccionIP = (string)e.NewValues["DireccionIP"] ?? "";
                 Bien.Costo = Convert.ToDouble(e.NewValues["Costo"]);
                 Bien.Observaciones = (string)e.NewValues["Observaciones"] ?? "";
                 Bien.FechaAdquisicion = Convert.ToDateTime(e.NewValues["FechaAdquisicion"].ToString());
@@ -248,7 +253,7 @@ namespace Zetabyte.Procesos.Altas
         protected void GridViewAltas_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
         {
             e.Cancel = true;
-            Cls_Bien Bien = new Cls_Bien();
+            Cls_Equipo Bien = new Cls_Equipo();
 
             Bien.IdEquipo = Convert.ToInt32(e.Keys["IdEquipo"]);
 
@@ -308,6 +313,34 @@ namespace Zetabyte.Procesos.Altas
         protected void BtnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("Altas.aspx");
+        }
+
+        protected void GridViewAltas_StartRowEditing(object sender, DevExpress.Web.Data.ASPxStartRowEditingEventArgs e)
+        {
+            try
+            {
+                ((GridViewDataDateColumn)GridViewAltas.Columns["FechaAdquisicion"]).PropertiesDateEdit.MaxDate = DateTime.Now;
+                string _TipoEquipo = GridViewAltas.GetRowValuesByKeyValue(e.EditingKeyValue, "IdTipoEquipo").ToString();
+
+                if(_TipoEquipo == "1" || _TipoEquipo == "2") // LAPTOP, CPU
+                {
+                    ((GridViewDataColumn)GridViewAltas.Columns["Procesador"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.True;
+                    ((GridViewDataColumn)GridViewAltas.Columns["Almacenamiento"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.True;
+                    ((GridViewDataColumn)GridViewAltas.Columns["RAM"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.True;
+                    ((GridViewDataColumn)GridViewAltas.Columns["DireccionIP"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.True;
+                }
+                else
+                {
+                    ((GridViewDataColumn)GridViewAltas.Columns["Procesador"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+                    ((GridViewDataColumn)GridViewAltas.Columns["Almacenamiento"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+                    ((GridViewDataColumn)GridViewAltas.Columns["RAM"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+                    ((GridViewDataColumn)GridViewAltas.Columns["DireccionIP"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
+                }
+            }
+            catch(Exception Ex)
+            {
+                FG.Controlador_Error(Ex, Page.Response);
+            }
         }
     }
 }
