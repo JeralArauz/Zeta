@@ -118,7 +118,10 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="Catálogos\Areas.aspx" />
+    <Content Include="Catálogos\Cargos.aspx" />
     <Content Include="Catálogos\Colores.aspx" />
+    <Content Include="Catálogos\Estructuras.aspx" />
     <Content Include="Catálogos\Marcas.aspx" />
     <Content Include="Catálogos\Modelos.aspx" />
     <Content Include="Catálogos\Personal.aspx" />
@@ -215,12 +218,33 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Catálogos\Areas.aspx.cs">
+      <DependentUpon>Areas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catálogos\Areas.aspx.designer.cs">
+      <DependentUpon>Areas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catálogos\Cargos.aspx.cs">
+      <DependentUpon>Cargos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catálogos\Cargos.aspx.designer.cs">
+      <DependentUpon>Cargos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Catálogos\Colores.aspx.cs">
       <DependentUpon>Colores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catálogos\Colores.aspx.designer.cs">
       <DependentUpon>Colores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catálogos\Estructuras.aspx.cs">
+      <DependentUpon>Estructuras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catálogos\Estructuras.aspx.designer.cs">
+      <DependentUpon>Estructuras.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catálogos\Marcas.aspx.cs">
       <DependentUpon>Marcas.aspx</DependentUpon>

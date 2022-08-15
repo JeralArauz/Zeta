@@ -10,7 +10,7 @@
             <div class="col-md-12" style="padding-left:200px;padding-right:200px; top: -38px; left: -11px; margin-top: 0px;">
                 <asp:UpdatePanel ID="UdpGrid" runat="server">
                     <ContentTemplate>
-                        <dx:ASPxGridView ID="GridViewInventario" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceInventario" EnableCallBacks="False" EnableTheming="True" KeyFieldName="IdEquipo" Theme="Material" OnRowUpdating="GridViewInventario_RowUpdating" OnStartRowEditing="GridViewInventario_StartRowEditing">
+                        <dx:ASPxGridView ID="GridViewInventario" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceInventario" EnableCallBacks="False" EnableTheming="True" KeyFieldName="IdEquipo" Theme="Material" OnRowUpdating="GridViewInventario_RowUpdating" OnStartRowEditing="GridViewInventario_StartRowEditing" Width="100%">
                             <SettingsAdaptivity AdaptiveColumnPosition="Left" AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800">
                             </SettingsAdaptivity>
                             <SettingsEditing Mode="PopupEditForm">

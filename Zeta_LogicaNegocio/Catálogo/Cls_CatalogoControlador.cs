@@ -113,18 +113,6 @@ namespace Zeta_LogicaNegocio.Catálogo
             //EJECUTANDO EL PROCEDIMIENTO
             EjecutarProcedimiento();
         }
-        ////PROCEDIMIENTO PARA ELIMINAR UN REGISTRO DEL CATALOGO TIPO ARTICULO
-        //public void EliminarMarca(Cls_Marca Marca, string IdentityUser)
-        //{
-        //    //INICIANDO EL PROCEDIMIENTO
-        //    IniciarProcedimiento("SP_Cat_MarcaEliminar");
-        //    //AGREGANDO PARAMETROS
-        //    AgregarParametroProcedimiento("@IDMarca", SqlDbType.Int, Marca.IDMarca);
-        //    AgregarParametroProcedimiento("@IdentityUser", SqlDbType.NVarChar, IdentityUser);
-        //    AgregarParametroProcedimiento("@UUA", SqlDbType.NVarChar, _NombreUsuario);
-        //    //EJECUTANDO EL PROCEDIMIENTO
-        //    EjecutarProcedimiento();
-        //}
         public Boolean ValidarMarcaRepetido(Cls_Marcas Marca)
         {
             Boolean Retorno = false;
@@ -185,6 +173,63 @@ namespace Zeta_LogicaNegocio.Catálogo
 
         //#endregion
 
+
+        public void CrearActualizarEstructura(Cls_Estructura Estructura, string IdentityUser, string UUA)
+        {
+            /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
+            IniciarProcedimiento("SP_CrearActualizarEstructura");
+            /*AGREGAMOS LOS PARAMETROS DEL PROCEDIMIENTO*/
+            AgregarParametroProcedimiento("@IdEstructura", SqlDbType.Int, Estructura.IdEstructura);
+            AgregarParametroProcedimiento("@Estructura", SqlDbType.NVarChar, Estructura.Estructura);
+            AgregarParametroProcedimiento("@UUA", SqlDbType.NVarChar, UUA);
+            AgregarParametroProcedimiento("@IdentityUser", SqlDbType.NVarChar, IdentityUser);
+            /*EJECUTAMOS EL PROCEDIMIENTO*/
+            EjecutarProcedimiento();
+        }
+
+        public void CrearActualizarArea(Cls_Area Area, string IdentityUser, string UUA)
+        {
+            /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
+            IniciarProcedimiento("SP_CrearActualizarArea");
+            /*AGREGAMOS LOS PARAMETROS DEL PROCEDIMIENTO*/
+            AgregarParametroProcedimiento("@IdArea", SqlDbType.Int, Area.IdArea);
+            AgregarParametroProcedimiento("@Area", SqlDbType.NVarChar, Area.Area);
+            AgregarParametroProcedimiento("@IdEstructura", SqlDbType.Int, Area.IdEstructura);
+            AgregarParametroProcedimiento("@UUA", SqlDbType.NVarChar, UUA);
+            AgregarParametroProcedimiento("@IdentityUser", SqlDbType.NVarChar, IdentityUser);
+            /*EJECUTAMOS EL PROCEDIMIENTO*/
+            EjecutarProcedimiento();
+        }
+
+        public void CrearActualizarCargo(Cls_Cargo Cargo, string IdentityUser, string UUA)
+        {
+            /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
+            IniciarProcedimiento("SP_CrearActualizarCargo");
+            /*AGREGAMOS LOS PARAMETROS DEL PROCEDIMIENTO*/
+            AgregarParametroProcedimiento("@IdCargo", SqlDbType.Int, Cargo.IdCargo);
+            AgregarParametroProcedimiento("@Cargo", SqlDbType.NVarChar, Cargo.Cargo);
+            AgregarParametroProcedimiento("@IdArea", SqlDbType.Int, Cargo.IdArea);
+            AgregarParametroProcedimiento("@UUA", SqlDbType.NVarChar, UUA);
+            AgregarParametroProcedimiento("@IdentityUser", SqlDbType.NVarChar, IdentityUser);
+            /*EJECUTAMOS EL PROCEDIMIENTO*/
+            EjecutarProcedimiento();
+        }
+
+        public void CrearActualizarPersonal(Cls_Personal Personal, string IdentityUser, string UUA)
+        {
+            /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
+            IniciarProcedimiento("SP_CrearActualizarPersonal");
+            /*AGREGAMOS LOS PARAMETROS DEL PROCEDIMIENTO*/
+            AgregarParametroProcedimiento("@IdPersonal", SqlDbType.Int, Personal.IdPersonal);
+            AgregarParametroProcedimiento("@Nombres", SqlDbType.NVarChar, Personal.Nombres);
+            AgregarParametroProcedimiento("@Apellidos", SqlDbType.NVarChar, Personal.Apellidos);
+            AgregarParametroProcedimiento("@IdCargo", SqlDbType.Int, Personal.IdCargo);
+            AgregarParametroProcedimiento("@Estado", SqlDbType.Bit, Personal.Activo);
+            AgregarParametroProcedimiento("@UUA", SqlDbType.NVarChar, UUA);
+            AgregarParametroProcedimiento("@IdentityUser", SqlDbType.NVarChar, IdentityUser);
+            /*EJECUTAMOS EL PROCEDIMIENTO*/
+            EjecutarProcedimiento();
+        }
 
         //#region "CATALOGO TIPO CLASIFICACION"
 

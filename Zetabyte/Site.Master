@@ -176,6 +176,12 @@
 
                                             <dx:BootstrapMenuItem Name="Personal" Text="Personal" NavigateUrl="~/Catálogos/Personal.aspx"></dx:BootstrapMenuItem>
 
+                                            <dx:BootstrapMenuItem Name="Estructuras" Text="Estructuras" NavigateUrl="~/Catálogos/Estructuras.aspx"></dx:BootstrapMenuItem>
+
+                                            <dx:BootstrapMenuItem Name="Areas" Text="Areas" NavigateUrl="~/Catálogos/Areas.aspx"></dx:BootstrapMenuItem>
+
+                                            <dx:BootstrapMenuItem Name="Cargos" Text="Cargos" NavigateUrl="~/Catálogos/Cargos.aspx"></dx:BootstrapMenuItem>
+
                                         </Items>
                                     </dx:BootstrapMenuItem>
 

@@ -1,0 +1,96 @@
+﻿using ACTIVOFIJO_GENERAL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Zeta_Datos.Catálogo;
+using Zeta_LogicaNegocio.Catálogo;
+
+namespace Zetabyte.Catálogos
+{
+    public partial class Cargos : System.Web.UI.Page
+    {
+        Cls_General FG = new Cls_General();
+        Cls_CatalogoControlador Ctrl_Catalogo = new Cls_CatalogoControlador();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridViewCargos_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+        {
+            Cls_Cargo Cargo = new Cls_Cargo();
+            string IdentityUser = string.Empty;
+            string MsjSQL = string.Empty;
+            try
+            {
+                e.Cancel = true;
+                Cargo.IdCargo = 0;
+                Cargo.Cargo = e.NewValues["Cargo"].ToString();
+                Cargo.IdArea = Convert.ToInt32(e.NewValues["IdArea"].ToString());
+
+                string UUA = Session["NombreUsuario"].ToString();
+                IdentityUser = FG.CrearIdentificadorUsuario(UUA);
+
+                Ctrl_Catalogo.CrearActualizarCargo(Cargo, IdentityUser, UUA);
+                MsjSQL = "";
+                MsjSQL = FG.Obtener_MensajeSQL(IdentityUser);
+                if (MsjSQL != "")
+                {
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "err_msj", "alert('" + MsjSQL + "');", true);
+                    return;
+                }
+                else
+                {
+                    GridViewCargos.CancelEdit();
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "err_msj", "alert('Registro agregado Correctamente');", true);
+                    GridViewCargos.DataBind();
+                    return;
+                }
+            }
+            catch(Exception Ex)
+            {
+                Ctrl_Catalogo.Controlador_Error(Ex, Page.Response);
+            }
+        }
+
+        protected void GridViewCargos_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
+        {
+            Cls_Cargo Cargo = new Cls_Cargo();
+            string IdentityUser = string.Empty;
+            string MsjSQL = string.Empty;
+            try
+            {
+                e.Cancel = true;
+                Cargo.IdCargo = Convert.ToInt32(e.Keys["IdCargo"].ToString());
+                Cargo.Cargo = e.NewValues["Cargo"].ToString();
+                Cargo.IdArea = Convert.ToInt32(e.NewValues["IdArea"].ToString());
+
+                string UUA = Session["NombreUsuario"].ToString();
+                IdentityUser = FG.CrearIdentificadorUsuario(UUA);
+
+                Ctrl_Catalogo.CrearActualizarCargo(Cargo, IdentityUser, UUA);
+                MsjSQL = "";
+                MsjSQL = FG.Obtener_MensajeSQL(IdentityUser);
+                if (MsjSQL != "")
+                {
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "err_msj", "alert('" + MsjSQL + "');", true);
+                    return;
+                }
+                else
+                {
+                    GridViewCargos.CancelEdit();
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "err_msj", "alert('Registro agregado Correctamente');", true);
+                    GridViewCargos.DataBind();
+                    return;
+                }
+            }
+            catch (Exception Ex)
+            {
+                Ctrl_Catalogo.Controlador_Error(Ex, Page.Response);
+            }
+        }
+    }
+}

@@ -30,7 +30,27 @@ namespace Zetabyte.Catálogos
                 Personal.IdPersonal = 0;
                 Personal.Nombres = e.NewValues["Nombres"].ToString();
                 Personal.Apellidos = e.NewValues["Apellidos"].ToString();
-                Personal.Estructura = e.NewValues["Estructura"].ToString();
+                Personal.IdCargo = Convert.ToInt32(e.NewValues["IdCargo"].ToString());
+                Personal.Activo = Convert.ToBoolean(e.NewValues["Estado"].ToString());
+
+                string UUA = Session["NombreUsuario"].ToString();
+                IdentityUser = FG.CrearIdentificadorUsuario(UUA);
+
+                Ctrl_Catalogo.CrearActualizarPersonal(Personal, IdentityUser, UUA);
+                MsjSQL = "";
+                MsjSQL = FG.Obtener_MensajeSQL(IdentityUser);
+                if (MsjSQL != "")
+                {
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "err_msj", "alert('" + MsjSQL + "');", true);
+                    return;
+                }
+                else
+                {
+                    GridViewPersonal.CancelEdit();
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "err_msj", "alert('Registro agregado Correctamente');", true);
+                    GridViewPersonal.DataBind();
+                    return;
+                }
             }
             catch (Exception Exec)
             {

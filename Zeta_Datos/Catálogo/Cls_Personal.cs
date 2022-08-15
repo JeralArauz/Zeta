@@ -27,25 +27,18 @@ namespace Zeta_Datos.Catálogo
             get { return _Apellidos; }
             set { _Apellidos = value; }
         }
-
-        private string _Estructura;
-        public string Estructura
+        private int _IdCargo;
+        public int IdCargo
         {
-            get { return _Estructura; }
-            set { _Estructura = value; }
+            get { return _IdCargo; }
+            set { _IdCargo = value; }
         }
 
-        private string _Area;
-        public string Area
+        private bool _Activo;
+        public bool Activo
         {
-            get { return _Area; }
-            set { _Area = value; }
-        }
-        private string _Cargo;
-        public string Cargo
-        {
-            get { return _Cargo; }
-            set { _Cargo = value; }
+            get { return _Activo; }
+            set { _Activo = value; }
         }
     }
 }

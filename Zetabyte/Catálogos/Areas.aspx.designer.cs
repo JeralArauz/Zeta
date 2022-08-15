@@ -11,7 +11,7 @@ namespace Zetabyte.Catálogos
 {
 
 
-    public partial class Personal
+    public partial class Areas
     {
 
         /// <summary>
@@ -51,30 +51,30 @@ namespace Zetabyte.Catálogos
         protected global::System.Web.UI.WebControls.Label Lbl_Mensaje;
 
         /// <summary>
-        /// Control GridViewPersonal.
+        /// Control GridViewAreas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView GridViewPersonal;
+        protected global::DevExpress.Web.ASPxGridView GridViewAreas;
 
         /// <summary>
-        /// Control SqlDataSourcePersonal.
+        /// Control SqlDataSourceAreas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourcePersonal;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceAreas;
 
         /// <summary>
-        /// Control SqlDataSourceCargos.
+        /// Control SqlDataSourceEstructuras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceCargos;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceEstructuras;
     }
 }

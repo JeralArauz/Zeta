@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catálogo\Cls_Area.cs" />
+    <Compile Include="Catálogo\Cls_Cargo.cs" />
     <Compile Include="Catálogo\Cls_Color.cs" />
+    <Compile Include="Catálogo\Cls_Estructura.cs" />
     <Compile Include="Catálogo\Cls_Marcas.cs" />
     <Compile Include="Catálogo\Cls_Modelos.cs" />
     <Compile Include="Catálogo\Cls_Personal.cs" />
