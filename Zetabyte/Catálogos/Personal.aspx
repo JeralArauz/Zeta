@@ -17,7 +17,38 @@
                         Font-Names="Tahoma" Font-Size="Small" ForeColor="Blue" Width="430px"></asp:Label>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <dx:ASPxGridView ID="GridViewPersonal" runat="server"></dx:ASPxGridView>
+            <dx:ASPxGridView ID="GridViewPersonal" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePersonal" EnableCallBacks="False" EnableTheming="True" Theme="Material" OnRowInserting="GridViewPersonal_RowInserting">
+                <SettingsEditing Mode="PopupEditForm">
+                </SettingsEditing>
+                <SettingsPopup>
+                    <EditForm CloseOnEscape="True" Modal="True">
+                    </EditForm>
+                </SettingsPopup>
+                <Columns>
+                    <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
+                    </dx:GridViewCommandColumn>
+                    <dx:GridViewDataTextColumn FieldName="IdPersonal" ReadOnly="True" Visible="False" VisibleIndex="1">
+                        <EditFormSettings Visible="False" />
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="Nombres" VisibleIndex="2">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="Apellidos" VisibleIndex="3">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="Estructura" VisibleIndex="6">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="Area" VisibleIndex="5">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="Cargo" VisibleIndex="4">
+                    </dx:GridViewDataTextColumn>
+                </Columns>
+                <Styles>
+                    <Header BackColor="#00283C" Font-Bold="True" ForeColor="White">
+                    </Header>
+                    <EditForm BackColor="#00283C">
+                    </EditForm>
+                </Styles>
+            </dx:ASPxGridView>
+            <asp:SqlDataSource ID="SqlDataSourcePersonal" runat="server" ConnectionString="<%$ ConnectionStrings:BaseDatosSistema %>" SelectCommand="SELECT [IdPersonal], [Nombres], [Apellidos], [Estructura], [Area], [Cargo] FROM [Personal]"></asp:SqlDataSource>
         </div>
     </div>
 </asp:Content>

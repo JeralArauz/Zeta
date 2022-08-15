@@ -44,6 +44,7 @@
     <Compile Include="Catálogo\Cls_Color.cs" />
     <Compile Include="Catálogo\Cls_Marcas.cs" />
     <Compile Include="Catálogo\Cls_Modelos.cs" />
+    <Compile Include="Catálogo\Cls_Personal.cs" />
     <Compile Include="Catálogo\Cls_TipoArticulo.cs" />
     <Compile Include="Equipos\Cls_Alta.cs" />
     <Compile Include="Equipos\Cls_Equipo.cs" />
