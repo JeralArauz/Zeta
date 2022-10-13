@@ -224,6 +224,7 @@ namespace Zeta_LogicaNegocio.Catálogo
             AgregarParametroProcedimiento("@Nombres", SqlDbType.NVarChar, Personal.Nombres);
             AgregarParametroProcedimiento("@Apellidos", SqlDbType.NVarChar, Personal.Apellidos);
             AgregarParametroProcedimiento("@IdCargo", SqlDbType.Int, Personal.IdCargo);
+            AgregarParametroProcedimiento("@IdDenominacion", SqlDbType.Int, Personal.IdDenominacion);
             AgregarParametroProcedimiento("@Estado", SqlDbType.Bit, Personal.Activo);
             AgregarParametroProcedimiento("@UUA", SqlDbType.NVarChar, UUA);
             AgregarParametroProcedimiento("@IdentityUser", SqlDbType.NVarChar, IdentityUser);

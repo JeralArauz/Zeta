@@ -34,6 +34,13 @@ namespace Zeta_Datos.Catálogo
             set { _IdCargo = value; }
         }
 
+        private int _IdDenominacion;
+        public int IdDenominacion
+        {
+            get { return _IdDenominacion; }
+            set { _IdDenominacion = value; }
+        }
+
         private bool _Activo;
         public bool Activo
         {
