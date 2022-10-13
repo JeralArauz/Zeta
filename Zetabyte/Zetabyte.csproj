@@ -121,6 +121,7 @@
     <Content Include="Catálogos\Areas.aspx" />
     <Content Include="Catálogos\Cargos.aspx" />
     <Content Include="Catálogos\Colores.aspx" />
+    <Content Include="Catálogos\Denominaciones.aspx" />
     <Content Include="Catálogos\Estructuras.aspx" />
     <Content Include="Catálogos\Marcas.aspx" />
     <Content Include="Catálogos\Modelos.aspx" />
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="Catálogos\Colores.aspx.designer.cs">
       <DependentUpon>Colores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catálogos\Denominaciones.aspx.cs">
+      <DependentUpon>Denominaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catálogos\Denominaciones.aspx.designer.cs">
+      <DependentUpon>Denominaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catálogos\Estructuras.aspx.cs">
       <DependentUpon>Estructuras.aspx</DependentUpon>
