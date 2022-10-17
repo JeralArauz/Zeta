@@ -53,9 +53,9 @@ namespace Zetabyte.Catálogos
                     return;
                 }
             }
-            catch (Exception Exec)
+            catch (Exception Ex)
             {
-                Ctrl_Catalogo.Controlador_Error(Exec, Page.Response);
+                Ctrl_Catalogo.Controlador_Error(Ex, Page.Response);
             }
         }
 

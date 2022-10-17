@@ -12,12 +12,12 @@
                     <ContentTemplate>
                         <dx:ASPxGridView ID="GridViewAltas" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceAltas" EnableTheming="True" KeyFieldName="IdAltaEquipos" Theme="Material" EnableCallBacks="False" OnInitNewRow="GridViewAltas_InitNewRow" OnStartRowEditing="GridViewAltas_StartRowEditing">
                             <SettingsCommandButton>
-                                <NewButton>
-                                    <Image IconID="actions_insert_16x16">
+                                <NewButton ButtonType="Image" RenderMode="Image">
+                                    <Image IconID="actions_addfile_32x32">
                                     </Image>
                                 </NewButton>
                                 <EditButton ButtonType="Image" RenderMode="Image">
-                                    <Image IconID="tasks_edittask_16x16">
+                                    <Image IconID="edit_edit_32x32">
                                     </Image>
                                 </EditButton>
                             </SettingsCommandButton>

@@ -20,6 +20,7 @@
             <dx:ASPxGridView ID="GridViewPersonal" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePersonal" EnableCallBacks="False" EnableTheming="True" Theme="Material" OnRowInserting="GridViewPersonal_RowInserting" KeyFieldName="IdPersonal" OnRowUpdating="GridViewPersonal_RowUpdating">
                 <SettingsEditing Mode="PopupEditForm">
                 </SettingsEditing>
+                <Settings ShowHeaderFilterButton="True" />
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" Modal="True">
                     </EditForm>
@@ -36,6 +37,8 @@
                                 <RequiredField IsRequired="True" />
                             </ValidationSettings>
                         </PropertiesTextEdit>
+                        <SettingsHeaderFilter Mode="CheckedList">
+                        </SettingsHeaderFilter>
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="Apellidos" VisibleIndex="5" Width="150px">
                         <PropertiesTextEdit Width="300px">
@@ -43,14 +46,22 @@
                                 <RequiredField IsRequired="True" />
                             </ValidationSettings>
                         </PropertiesTextEdit>
+                        <SettingsHeaderFilter Mode="CheckedList">
+                        </SettingsHeaderFilter>
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="Estructura" VisibleIndex="9" Width="130px">
+                        <SettingsHeaderFilter Mode="CheckedList">
+                        </SettingsHeaderFilter>
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="Area" VisibleIndex="7" Width="130px">
+                        <SettingsHeaderFilter Mode="CheckedList">
+                        </SettingsHeaderFilter>
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="Cargo" VisibleIndex="6" Width="150px">
+                        <SettingsHeaderFilter Mode="CheckedList">
+                        </SettingsHeaderFilter>
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataCheckColumn Caption="Activo" FieldName="Estado" VisibleIndex="10">
@@ -80,6 +91,8 @@
                         <EditFormSettings Visible="True" />
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataTextColumn FieldName="Denominacion" VisibleIndex="2">
+                        <SettingsHeaderFilter Mode="CheckedList">
+                        </SettingsHeaderFilter>
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
                 </Columns>

@@ -21,6 +21,24 @@
                 Theme="Material" KeyFieldName="IdCargo" OnRowInserting="GridViewCargos_RowInserting" OnRowUpdating="GridViewCargos_RowUpdating" Width="60%">
                 <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
                 </SettingsEditing>
+                <SettingsCommandButton>
+                    <NewButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_addfile_32x32" ToolTip="Agregar Nuevo">
+                        </Image>
+                    </NewButton>
+                    <UpdateButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_apply_32x32" ToolTip="Aceptar">
+                        </Image>
+                    </UpdateButton>
+                    <CancelButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_cancel_32x32" ToolTip="Cancelar">
+                        </Image>
+                    </CancelButton>
+                    <EditButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_edit_32x32" ToolTip="Editar">
+                        </Image>
+                    </EditButton>
+                </SettingsCommandButton>
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" Modal="True" HorizontalAlign="WindowCenter" VerticalAlign="WindowCenter">
                     </EditForm>

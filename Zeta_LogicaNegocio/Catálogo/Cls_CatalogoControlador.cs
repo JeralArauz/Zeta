@@ -232,6 +232,18 @@ namespace Zeta_LogicaNegocio.Catálogo
             EjecutarProcedimiento();
         }
 
+        public void CrearActualizarDenominacion(Cls_Denominacion Denominacion, string IdentityUser, string UUA)
+        {
+            /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
+            IniciarProcedimiento("SP_CrearActualizarDenominacion");
+            /*AGREGAMOS LOS PARAMETROS DEL PROCEDIMIENTO*/
+            AgregarParametroProcedimiento("@IdDenominacion", SqlDbType.Int, Denominacion.IdDenominacion);
+            AgregarParametroProcedimiento("@Denominacion", SqlDbType.NVarChar, Denominacion.Denominacion);
+            AgregarParametroProcedimiento("@UUA", SqlDbType.NVarChar, UUA);
+            AgregarParametroProcedimiento("@IdentityUser", SqlDbType.NVarChar, IdentityUser);
+            /*EJECUTAMOS EL PROCEDIMIENTO*/
+            EjecutarProcedimiento();
+        }
         //#region "CATALOGO TIPO CLASIFICACION"
 
         //public void CrearActualizarTipoClasificacion(Cls_TipoClasificacion TipoClasificacion, string IdentityUser)

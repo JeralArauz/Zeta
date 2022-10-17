@@ -17,7 +17,28 @@
                         Font-Names="Tahoma" Font-Size="Small" ForeColor="Blue" Width="430px"></asp:Label>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <dx:ASPxGridView ID="GridViewDenominaciones" runat="server"></dx:ASPxGridView>
+            <dx:ASPxGridView ID="GridViewDenominaciones" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDenominaciones" KeyFieldName="IdDenominacion" EnableTheming="True" OnRowInserting="GridViewDenominaciones_RowInserting" Theme="Material" Width="550px" EnableCallBacks="False" OnRowUpdating="GridViewDenominaciones_RowUpdating">
+                <SettingsEditing Mode="PopupEditForm">
+                </SettingsEditing>
+                <SettingsPopup>
+                    <EditForm CloseOnEscape="True" Modal="True">
+                    </EditForm>
+                </SettingsPopup>
+                <Columns>
+                    <dx:GridViewCommandColumn ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
+                    </dx:GridViewCommandColumn>
+                    <dx:GridViewDataTextColumn FieldName="IdDenominacion" ReadOnly="True" VisibleIndex="1" Visible="False">
+                        <EditFormSettings Visible="False" />
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="Denominacion" VisibleIndex="2">
+                    </dx:GridViewDataTextColumn>
+                </Columns>
+                <Styles>
+                    <Header BackColor="#00283C" Font-Bold="True" ForeColor="White">
+                    </Header>
+                </Styles>
+            </dx:ASPxGridView>
+            <asp:SqlDataSource ID="SqlDataSourceDenominaciones" runat="server" ConnectionString="<%$ ConnectionStrings:BaseDatosSistema %>" SelectCommand="SELECT [IdDenominacion], [Denominacion] FROM [Denominaciones]"></asp:SqlDataSource>
         </div>
     </div>
 </asp:Content>

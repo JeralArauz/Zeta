@@ -19,22 +19,44 @@
                         Font-Names="Tahoma" Font-Size="Small" ForeColor="Blue" Width="430px"></asp:Label>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <dx:ASPxGridView ID="GridViewColores" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceColores" EnableCallBacks="False" EnableTheming="True" KeyFieldName="IDColor" Theme="Material" OnRowInserting="GridViewColores_RowInserting">
+            <dx:ASPxGridView ID="GridViewColores" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceColores" EnableCallBacks="False" EnableTheming="True" KeyFieldName="IDColor" Theme="Material" OnRowInserting="GridViewColores_RowInserting" Width="761px">
                 <SettingsEditing Mode="PopupEditForm">
                 </SettingsEditing>
                 <Settings ShowFilterRow="True" />
                 <SettingsBehavior AllowSelectByRowClick="True" ConfirmDelete="True" />
+                <SettingsCommandButton>
+                    <NewButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_addfile_32x32" ToolTip="Agregar Nuevo">
+                        </Image>
+                    </NewButton>
+                    <UpdateButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_apply_32x32" ToolTip="Aceptar">
+                        </Image>
+                    </UpdateButton>
+                    <CancelButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_cancel_32x32" ToolTip="Cancelar">
+                        </Image>
+                    </CancelButton>
+                    <EditButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_edit_32x32" ToolTip="Editar">
+                        </Image>
+                    </EditButton>
+                    <DeleteButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="spreadsheet_removepivotfield_32x32" ToolTip="Eliminar">
+                        </Image>
+                    </DeleteButton>
+                </SettingsCommandButton>
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" HorizontalAlign="WindowCenter" VerticalAlign="WindowCenter">
                     </EditForm>
                 </SettingsPopup>
                 <Columns>
-                    <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
+                    <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" Width="100px">
                     </dx:GridViewCommandColumn>
                     <dx:GridViewDataTextColumn FieldName="IDColor" ReadOnly="True" Visible="False" VisibleIndex="1">
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="Color" VisibleIndex="2" Width="150px">
+                    <dx:GridViewDataTextColumn FieldName="Color" VisibleIndex="2">
                         <PropertiesTextEdit Width="450px">
                         </PropertiesTextEdit>
                     </dx:GridViewDataTextColumn>
