@@ -53,6 +53,7 @@ namespace Zetabyte.Account
                 {
                     if(CG.ExistenDatos("Exec Iniciar_Sesion "+Nombre_Usuario+","+Contraseña)==true)
                     {
+                        Response.Cookies.Add(CG.CrearCokie("NombreUsuario", Nombre_Usuario.Trim()));
                         Session["NombreUsuario"] = Nombre_Usuario.Trim().ToString();
                         //CG.Logueos_Usuarios(LoginUser.Text.Trim());
                         Response.Redirect("~/Default.aspx", true);

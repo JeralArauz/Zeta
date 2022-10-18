@@ -841,7 +841,7 @@ namespace ACTIVOFIJO_GENERAL
                 CodError = DateTime.Now.ToString("yyyy-MMddhhmmss");//Codigo unico del error para referencia del usuario
 
 
-                ExecuteSql("INSERT INTO COMUN..ErroresSistema (Sistema,Descripcion, Fecha, Usuario, Pantalla,CodError) VALUES('" + Nombre_Sistema + "','" + error + "',GETDATE(),'" + usuario + "','" + NombrePagina + "','" + CodError + "')");
+                ExecuteSql("INSERT INTO ErrorSQL (Error, IdentityUser) VALUES('" + error + "', '" + usuario + "')");
 
                 if (Ex.GetType().FullName != "System.Web.HttpUnhandledException")
                     Ejecutar_Funcion_JavaScript(PG, PG.GetType(), "err_msg", "alert('Se ha producido un error inesperado.');");

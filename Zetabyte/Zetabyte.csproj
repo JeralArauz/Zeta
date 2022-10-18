@@ -151,6 +151,7 @@
     <Content Include="Procesos\Altas\Altas.aspx" />
     <Content Include="Procesos\Altas\RegistrarAltas.aspx" />
     <Content Include="Procesos\Asignaciones\Asignaciones.aspx" />
+    <Content Include="Procesos\Asignaciones\RegistrarAsignaciones.aspx" />
     <Content Include="Procesos\Inventario.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -320,6 +321,13 @@
     </Compile>
     <Compile Include="Procesos\Asignaciones\Asignaciones.aspx.designer.cs">
       <DependentUpon>Asignaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\Asignaciones\RegistrarAsignaciones.aspx.cs">
+      <DependentUpon>RegistrarAsignaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Procesos\Asignaciones\RegistrarAsignaciones.aspx.designer.cs">
+      <DependentUpon>RegistrarAsignaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Procesos\Inventario.aspx.cs">
       <DependentUpon>Inventario.aspx</DependentUpon>

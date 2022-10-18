@@ -156,9 +156,9 @@
                                 <Items>
                                     <dx:BootstrapMenuItem Text="Sistema" IconCssClass="fa fa-user-circle fa-2x">
                                         <Items>
-                                            <dx:BootstrapMenuItem Text="Cambiar Contraseña">
+                                            <dx:BootstrapMenuItem Text="Cambiar Contraseña" Visible ="false">
                                             </dx:BootstrapMenuItem>
-                                            <dx:BootstrapMenuItem Text="Salir">
+                                            <dx:BootstrapMenuItem Text="Salir" NavigateUrl="~/Account/Login.aspx">
                                             </dx:BootstrapMenuItem>
                                         </Items>
 
@@ -190,7 +190,10 @@
                                     <dx:BootstrapMenuItem Name="Procesos" Text="Procesos" IconCssClass="fa fa-cogs fa-2x">
                                         <Items>
                                             <dx:BootstrapMenuItem Name="Inventario" Text="Inventario" NavigateUrl="Procesos/Inventario.aspx"></dx:BootstrapMenuItem>
+                                            
                                             <dx:BootstrapMenuItem Name="Altas" Text="Alta de Equipos" NavigateUrl="Procesos/Altas/Altas.aspx"></dx:BootstrapMenuItem>
+
+                                            <dx:BootstrapMenuItem Name="Asignaciones" Text="Asignaciones de Equipos" NavigateUrl="Procesos/Asignaciones/Asignaciones.aspx"></dx:BootstrapMenuItem>
                                         </Items>
 
                                     </dx:BootstrapMenuItem>
@@ -217,7 +220,7 @@
         </asp:UpdatePanel>
         <script>
 
-            <%--if (!getCookie('NombreUsuario'))
+            if (!getCookie('NombreUsuario'))
                 window.location.href = "<%=ResolveUrl("~/Account/Login.aspx")%>";
 
 
@@ -235,7 +238,7 @@
                     }
                 }
                 return "";
-            }--%>
+            }
         </script>
     </form>
 </body>
