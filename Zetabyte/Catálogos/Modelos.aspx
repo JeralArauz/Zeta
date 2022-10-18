@@ -18,11 +18,33 @@
                         Font-Names="Tahoma" Font-Size="Small" ForeColor="Blue" Width="430px"></asp:Label>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <dx:ASPxGridView ID="GridViewModelos" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceModelos" EnableTheming="True" Theme="Material" KeyFieldName="IdModelo" EnableCallBacks="False" OnRowInserting="GridViewModelos_RowInserting" OnRowUpdating="GridViewModelos_RowUpdating" OnRowDeleting="GridViewModelos_RowDeleting">
-                <SettingsEditing Mode="PopupEditForm">
+            <dx:ASPxGridView ID="GridViewModelos" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceModelos" EnableTheming="True" Theme="Material" KeyFieldName="IdModelo" EnableCallBacks="False" OnRowInserting="GridViewModelos_RowInserting" OnRowUpdating="GridViewModelos_RowUpdating" OnRowDeleting="GridViewModelos_RowDeleting" Width="610px">
+                <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
                 </SettingsEditing>
                 <Settings ShowFilterRow="True" ShowHeaderFilterButton="True" />
                 <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
+                <SettingsCommandButton>
+                    <NewButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_addfile_32x32" ToolTip="Agregar Nuevo">
+                        </Image>
+                    </NewButton>
+                    <UpdateButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_apply_32x32">
+                        </Image>
+                    </UpdateButton>
+                    <CancelButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_cancel_32x32" ToolTip="Cancelar">
+                        </Image>
+                    </CancelButton>
+                    <EditButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_edit_32x32" ToolTip="Editar">
+                        </Image>
+                    </EditButton>
+                    <DeleteButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_delete_32x32" ToolTip="Eliminar">
+                        </Image>
+                    </DeleteButton>
+                </SettingsCommandButton>
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" HorizontalAlign="WindowCenter" Modal="True" VerticalAlign="WindowCenter">
                     </EditForm>
@@ -36,19 +58,17 @@
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="Modelo" VisibleIndex="2" Width="130px">
-                        <PropertiesTextEdit Width="250px">
+                        <PropertiesTextEdit>
                             <ValidationSettings>
                                 <RequiredField IsRequired="True" />
                             </ValidationSettings>
                         </PropertiesTextEdit>
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="Marca" VisibleIndex="4" Width="130px">
-                        <PropertiesTextEdit Width="250px">
-                        </PropertiesTextEdit>
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataComboBoxColumn FieldName="IDMarca" Visible="False" VisibleIndex="3" Caption="Marca">
-                        <PropertiesComboBox DataSourceID="SqlDataSourceMarcas" TextField="Marca" ValueField="IDMarca" Width="250px">
+                        <PropertiesComboBox DataSourceID="SqlDataSourceMarcas" TextField="Marca" ValueField="IDMarca">
                             <ValidationSettings>
                                 <RequiredField IsRequired="True" />
                             </ValidationSettings>

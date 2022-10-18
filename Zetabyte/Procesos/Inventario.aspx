@@ -15,8 +15,22 @@
                             </SettingsAdaptivity>
                             <SettingsEditing Mode="PopupEditForm">
                             </SettingsEditing>
-                            <Settings HorizontalScrollBarMode="Visible" />
+                            <Settings HorizontalScrollBarMode="Visible" ShowFilterRow="True" ShowHeaderFilterButton="True" />
                             <SettingsBehavior AllowSelectByRowClick="True" SortMode="DisplayText" />
+                            <SettingsCommandButton>
+                                <UpdateButton ButtonType="Image" RenderMode="Image">
+                                    <Image IconID="actions_apply_32x32" ToolTip="Aceptar">
+                                    </Image>
+                                </UpdateButton>
+                                <CancelButton ButtonType="Image" RenderMode="Image">
+                                    <Image IconID="actions_cancel_32x32" ToolTip="Cancelar">
+                                    </Image>
+                                </CancelButton>
+                                <EditButton ButtonType="Image" RenderMode="Image">
+                                    <Image IconID="edit_edit_32x32" ToolTip="Editar">
+                                    </Image>
+                                </EditButton>
+                            </SettingsCommandButton>
                             <SettingsPopup>
                                 <EditForm CloseOnEscape="True" HorizontalAlign="WindowCenter" VerticalAlign="WindowCenter" Width="800px">
                                 </EditForm>
@@ -27,18 +41,30 @@
                                 <dx:GridViewDataTextColumn FieldName="IdEquipo" Visible="False" VisibleIndex="1">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="Descripcion" VisibleIndex="2" Width="150px">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="Estado" ReadOnly="True" VisibleIndex="17" Width="150px">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="Marca" ReadOnly="True" VisibleIndex="5" Width="100px">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                     <EditFormSettings Visible="False" />
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="Modelo" ReadOnly="True" VisibleIndex="6" Width="150px">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                     <EditFormSettings Visible="False" />
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="NumeroSerie" VisibleIndex="7" Width="150px">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="Color" VisibleIndex="8" Width="100px">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                     <EditFormSettings Visible="False" />
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="NumeroInventario" VisibleIndex="16" Width="100px" Caption="N Inventario">
@@ -78,18 +104,28 @@
                                 <dx:GridViewDataComboBoxColumn FieldName="TipoArticulo" ShowInCustomizationForm="True" Visible="False" VisibleIndex="3">
                                     <PropertiesComboBox DataSourceID="SqlDataSourceTipoArticulo" TextField="TipoArticulo" ValueField="IDTipoArticulo">
                                     </PropertiesComboBox>
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                     <EditFormSettings Visible="False" />
                                 </dx:GridViewDataComboBoxColumn>
                                 <dx:GridViewDataComboBoxColumn Caption="Tipo Equipo" FieldName="IdTipoEquipo" ShowInCustomizationForm="True" Visible="False" VisibleIndex="4">
                                     <PropertiesComboBox DataSourceID="SqlDataSourceTipoArticulo" TextField="TipoArticulo" ValueField="IDTipoArticulo">
                                     </PropertiesComboBox>
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataComboBoxColumn>
                                 <dx:GridViewDataTextColumn FieldName="Procesador" VisibleIndex="9">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="Almacenamiento" VisibleIndex="10" Width="150px">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="RAM" VisibleIndex="11">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="DireccionIP" VisibleIndex="12">
                                 </dx:GridViewDataTextColumn>

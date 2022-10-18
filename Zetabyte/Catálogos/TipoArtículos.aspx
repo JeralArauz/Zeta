@@ -18,16 +18,39 @@
                         Font-Names="Tahoma" Font-Size="Small" ForeColor="Blue" Width="430px"></asp:Label>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <dx:ASPxGridView ID="GridViewTipoArticulos" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceTipoArticulos" EnableCallBacks="False" EnableTheming="True" KeyFieldName="IDTipoArticulo" OnRowDeleting="GridViewTipoArticulos_RowDeleting" OnRowInserting="GridViewTipoArticulos_RowInserting" OnRowUpdating="GridViewTipoArticulos_RowUpdating" Theme="Material">
+            <dx:ASPxGridView ID="GridViewTipoArticulos" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceTipoArticulos" EnableCallBacks="False" EnableTheming="True" KeyFieldName="IDTipoArticulo" OnRowDeleting="GridViewTipoArticulos_RowDeleting" OnRowInserting="GridViewTipoArticulos_RowInserting" OnRowUpdating="GridViewTipoArticulos_RowUpdating" Theme="Material" Width="457px">
                 <SettingsEditing Mode="PopupEditForm">
                 </SettingsEditing>
+                <Settings ShowFilterRow="True" />
                 <SettingsBehavior AllowSelectByRowClick="True" ConfirmDelete="True" />
+                <SettingsCommandButton>
+                    <newbutton buttontype="Image" rendermode="Image">
+                        <image iconid="actions_addfile_32x32" tooltip="Agregar Nuevo">
+                        </image>
+                    </newbutton>
+                    <updatebutton buttontype="Image" rendermode="Image">
+                        <image iconid="actions_apply_32x32" tooltip="Aceptar">
+                        </image>
+                    </updatebutton>
+                    <CancelButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_cancel_32x32" ToolTip="Cancelar">
+                        </Image>
+                    </CancelButton>
+                    <EditButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_edit_32x32" ToolTip="Editar">
+                        </Image>
+                    </EditButton>
+                    <DeleteButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_delete_32x32" ToolTip="Eliminar">
+                        </Image>
+                    </DeleteButton>
+                </SettingsCommandButton>
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" HorizontalAlign="WindowCenter" Modal="True" VerticalAlign="WindowCenter">
                     </EditForm>
                 </SettingsPopup>
                 <Columns>
-                    <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowInCustomizationForm="True" ShowNewButtonInHeader="True" VisibleIndex="0">
+                    <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowInCustomizationForm="True" ShowNewButtonInHeader="True" VisibleIndex="0" Width="100px">
                     </dx:GridViewCommandColumn>
                     <dx:GridViewDataTextColumn FieldName="IDTipoArticulo" ReadOnly="True" ShowInCustomizationForm="True" Visible="False" VisibleIndex="1" Width="80px">
                         <EditFormSettings Visible="False" />

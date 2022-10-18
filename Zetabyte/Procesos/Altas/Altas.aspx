@@ -11,6 +11,7 @@
                 <asp:UpdatePanel ID="UdpGrid" runat="server">
                     <ContentTemplate>
                         <dx:ASPxGridView ID="GridViewAltas" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceAltas" EnableTheming="True" KeyFieldName="IdAltaEquipos" Theme="Material" EnableCallBacks="False" OnInitNewRow="GridViewAltas_InitNewRow" OnStartRowEditing="GridViewAltas_StartRowEditing">
+                            <Settings ShowFilterBar="Visible" ShowFilterRow="True" ShowHeaderFilterButton="True" />
                             <SettingsCommandButton>
                                 <NewButton ButtonType="Image" RenderMode="Image">
                                     <Image IconID="actions_addfile_32x32">
@@ -21,6 +22,10 @@
                                     </Image>
                                 </EditButton>
                             </SettingsCommandButton>
+                            <SettingsPopup>
+                                <HeaderFilter CloseOnEscape="True">
+                                </HeaderFilter>
+                            </SettingsPopup>
                             <Columns>
                                 <dx:GridViewDataTextColumn FieldName="IdAltaEquipos" ReadOnly="True" Visible="False" VisibleIndex="1">
                                     <EditFormSettings Visible="False" />
@@ -28,13 +33,19 @@
                                 <dx:GridViewDataDateColumn FieldName="FechaAlta" VisibleIndex="3" Width="150px">
                                 </dx:GridViewDataDateColumn>
                                 <dx:GridViewDataTextColumn FieldName="TipoAlta" VisibleIndex="4" Width="150px">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="Observaciones" VisibleIndex="5" Width="250px">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="Estado" VisibleIndex="6" Width="150px">
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="NumeroAlta" ReadOnly="True" VisibleIndex="2" Width="150px">
                                     <Settings FilterMode="DisplayText" />
+                                    <SettingsHeaderFilter Mode="CheckedList">
+                                    </SettingsHeaderFilter>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewCommandColumn Caption="Opciones" Name="Opciones" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
                                 </dx:GridViewCommandColumn>

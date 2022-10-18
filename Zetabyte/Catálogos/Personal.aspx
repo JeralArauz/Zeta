@@ -20,7 +20,29 @@
             <dx:ASPxGridView ID="GridViewPersonal" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePersonal" EnableCallBacks="False" EnableTheming="True" Theme="Material" OnRowInserting="GridViewPersonal_RowInserting" KeyFieldName="IdPersonal" OnRowUpdating="GridViewPersonal_RowUpdating">
                 <SettingsEditing Mode="PopupEditForm">
                 </SettingsEditing>
-                <Settings ShowHeaderFilterButton="True" />
+                <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" />
+                <SettingsCommandButton>
+                    <NewButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_addfile_32x32" ToolTip="Agregar Nuevo">
+                        </Image>
+                    </NewButton>
+                    <UpdateButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_apply_32x32" ToolTip="Aceptar">
+                        </Image>
+                    </UpdateButton>
+                    <CancelButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_cancel_32x32" ToolTip="Cancelar">
+                        </Image>
+                    </CancelButton>
+                    <EditButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_edit_32x32" ToolTip="Editar">
+                        </Image>
+                    </EditButton>
+                    <DeleteButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_delete_32x32" ToolTip="Eliminar">
+                        </Image>
+                    </DeleteButton>
+                </SettingsCommandButton>
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" Modal="True">
                     </EditForm>

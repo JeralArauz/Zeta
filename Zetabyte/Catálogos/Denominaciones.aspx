@@ -18,8 +18,30 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
             <dx:ASPxGridView ID="GridViewDenominaciones" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDenominaciones" KeyFieldName="IdDenominacion" EnableTheming="True" OnRowInserting="GridViewDenominaciones_RowInserting" Theme="Material" Width="550px" EnableCallBacks="False" OnRowUpdating="GridViewDenominaciones_RowUpdating">
-                <SettingsEditing Mode="PopupEditForm">
+                <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
                 </SettingsEditing>
+                <SettingsCommandButton>
+                    <NewButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_addfile_32x32">
+                        </Image>
+                    </NewButton>
+                    <UpdateButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_apply_32x32">
+                        </Image>
+                    </UpdateButton>
+                    <CancelButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_cancel_32x32" ToolTip="Cancelar">
+                        </Image>
+                    </CancelButton>
+                    <EditButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_edit_32x32" ToolTip="Editar">
+                        </Image>
+                    </EditButton>
+                    <DeleteButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_delete_32x32" ToolTip="Eliminar">
+                        </Image>
+                    </DeleteButton>
+                </SettingsCommandButton>
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" Modal="True">
                     </EditForm>
@@ -31,6 +53,11 @@
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="Denominacion" VisibleIndex="2">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RequiredField IsRequired="True" />
+                            </ValidationSettings>
+                        </PropertiesTextEdit>
                     </dx:GridViewDataTextColumn>
                 </Columns>
                 <Styles>

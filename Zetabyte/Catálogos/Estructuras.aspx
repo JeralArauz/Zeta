@@ -17,21 +17,47 @@
                         Font-Names="Tahoma" Font-Size="Small" ForeColor="Blue" Width="430px"></asp:Label>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <dx:ASPxGridView ID="GridViewEstructuras" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceEstructuras" EnableCallBacks="False" EnableTheming="True" Theme="Material" KeyFieldName="IdEstructura" OnRowInserting="GridViewEstructuras_RowInserting" OnRowUpdating="GridViewEstructuras_RowUpdating">
+            <dx:ASPxGridView ID="GridViewEstructuras" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceEstructuras" EnableCallBacks="False" EnableTheming="True" Theme="Material" KeyFieldName="IdEstructura" OnRowInserting="GridViewEstructuras_RowInserting" OnRowUpdating="GridViewEstructuras_RowUpdating" Width="530px">
                 <SettingsEditing Mode="PopupEditForm">
                 </SettingsEditing>
+                <Settings ShowFilterRow="True" />
+                <SettingsCommandButton>
+                    <NewButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_addfile_32x32" ToolTip="Agregar Nuevo">
+                        </Image>
+                    </NewButton>
+                    <UpdateButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_apply_32x32" ToolTip="Aceptar">
+                        </Image>
+                    </UpdateButton>
+                    <CancelButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_cancel_32x32" ToolTip="Cancelar">
+                        </Image>
+                    </CancelButton>
+                    <EditButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_edit_32x32" ToolTip="Editar">
+                        </Image>
+                    </EditButton>
+                    <DeleteButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_delete_32x32" ToolTip="Eliminar">
+                        </Image>
+                    </DeleteButton>
+                </SettingsCommandButton>
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" Modal="True">
                     </EditForm>
                 </SettingsPopup>
                 <Columns>
-                    <dx:GridViewCommandColumn ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
+                    <dx:GridViewCommandColumn ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" Width="100px">
                     </dx:GridViewCommandColumn>
                     <dx:GridViewDataTextColumn FieldName="IdEstructura" ReadOnly="True" VisibleIndex="1" Visible="False">
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="Estructura" VisibleIndex="2" Width="250px">
+                    <dx:GridViewDataTextColumn FieldName="Estructura" VisibleIndex="2">
                         <PropertiesTextEdit Width="500px">
+                            <ValidationSettings>
+                                <RequiredField IsRequired="True" />
+                            </ValidationSettings>
                         </PropertiesTextEdit>
                     </dx:GridViewDataTextColumn>
                 </Columns>

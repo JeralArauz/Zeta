@@ -20,6 +20,7 @@
             <dx:ASPxGridView ID="GridViewAreas" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceAreas" EnableCallBacks="False" EnableTheming="True" Theme="Material" KeyFieldName="IdArea" OnRowInserting="GridViewAreas_RowInserting" OnRowUpdating="GridViewAreas_RowUpdating">
                 <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
                 </SettingsEditing>
+                <Settings ShowFilterRow="True" ShowHeaderFilterButton="True" />
                 <SettingsCommandButton>
                     <NewButton ButtonType="Image" RenderMode="Image">
                         <Image IconID="actions_addfile_32x32">
@@ -45,6 +46,8 @@
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" Modal="True" HorizontalAlign="WindowCenter" VerticalAlign="WindowCenter">
                     </EditForm>
+                    <HeaderFilter CloseOnEscape="True">
+                    </HeaderFilter>
                 </SettingsPopup>
                 <Columns>
                     <dx:GridViewCommandColumn ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
@@ -55,9 +58,13 @@
                                 <RequiredField IsRequired="True" />
                             </ValidationSettings>
                         </PropertiesTextEdit>
+                        <SettingsHeaderFilter Mode="CheckedList">
+                        </SettingsHeaderFilter>
                         <EditFormSettings Visible="True" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="Estructura" VisibleIndex="4" Width="250px">
+                        <SettingsHeaderFilter Mode="CheckedList">
+                        </SettingsHeaderFilter>
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="IdArea" ReadOnly="True" Visible="False" VisibleIndex="1">

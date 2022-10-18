@@ -17,11 +17,33 @@
                         Font-Names="Tahoma" Font-Size="Small" ForeColor="Blue" Width="430px"></asp:Label>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <dx:ASPxGridView ID="GridViewMarcas" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceMarcas" EnableTheming="True" KeyFieldName="IDMarca" Theme="Material" Caption="CATÁLOGO DE MARCAS" EnableCallBacks="False" OnRowInserting="GridViewMarcas_RowInserting" OnRowUpdating="GridViewMarcas_RowUpdating">
-                <SettingsEditing Mode="PopupEditForm">
+            <dx:ASPxGridView ID="GridViewMarcas" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceMarcas" EnableTheming="True" KeyFieldName="IDMarca" Theme="Material" Caption="CATÁLOGO DE MARCAS" EnableCallBacks="False" OnRowInserting="GridViewMarcas_RowInserting" OnRowUpdating="GridViewMarcas_RowUpdating" Width="525px">
+                <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
                 </SettingsEditing>
                 <Settings ShowFilterRow="True" ShowHeaderFilterButton="True" />
                 <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True" />
+                <SettingsCommandButton>
+                    <NewButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_addfile_32x32" ToolTip="Agregar Nuevo">
+                        </Image>
+                    </NewButton>
+                    <UpdateButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_apply_32x32" ToolTip="Aceptar">
+                        </Image>
+                    </UpdateButton>
+                    <CancelButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="actions_cancel_32x32" ToolTip="Cancelar">
+                        </Image>
+                    </CancelButton>
+                    <EditButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_edit_32x32" ToolTip="Editar">
+                        </Image>
+                    </EditButton>
+                    <DeleteButton ButtonType="Image" RenderMode="Image">
+                        <Image IconID="edit_delete_32x32" ToolTip="Eliminar">
+                        </Image>
+                    </DeleteButton>
+                </SettingsCommandButton>
                 <SettingsPopup>
                     <EditForm CloseOnEscape="True" HorizontalAlign="WindowCenter" Modal="True" VerticalAlign="WindowCenter">
                     </EditForm>
@@ -35,7 +57,10 @@
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="Marca" VisibleIndex="2" Width="250px" Caption="Marcas">
-                        <PropertiesTextEdit Width="500px">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RequiredField IsRequired="True" />
+                            </ValidationSettings>
                         </PropertiesTextEdit>
                     </dx:GridViewDataTextColumn>
                 </Columns>
