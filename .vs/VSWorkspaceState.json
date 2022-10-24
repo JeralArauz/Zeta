@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Zetabyte"
+    "\\Zetabyte",
+    "\\Zetabyte\\Procesos",
+    "\\Zetabyte\\Procesos\\Asignaciones"
   ],
-  "SelectedNode": "\\Zetabyte\\Zetabyte.sln",
+  "SelectedNode": "\\Zetabyte\\Procesos\\Asignaciones\\RegistrarAsignaciones.aspx",
   "PreviewInSolutionExplorer": false
 }

@@ -90,9 +90,21 @@
         <div class="col-md-6">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <dx:ASPxComboBox ID="ComboBox_AsignadoA" runat="server" AutoPostBack="True" Width="100%" Theme="Material" DataSourceID="SqlDataSourcePersonal" TextField="Personal" ValueField="IdPersonal">
+                    <dx:ASPxComboBox ID="ComboBox_AsignadoA" runat="server" AutoPostBack="True" Width="100%" Theme="Material" DataSourceID="SqlDataSourcePersonal" TextField="Personal" ValueField="IdPersonal" OnSelectedIndexChanged="ComboBox_AsignadoA_SelectedIndexChanged">
+                        <Columns>
+                            <dx:ListBoxColumn FieldName="IdPersonal" Visible="False">
+                            </dx:ListBoxColumn>
+                            <dx:ListBoxColumn Caption="Usuario" FieldName="Personal">
+                            </dx:ListBoxColumn>
+                            <dx:ListBoxColumn FieldName="Cargo" Visible="False">
+                            </dx:ListBoxColumn>
+                            <dx:ListBoxColumn FieldName="Area" Visible="False">
+                            </dx:ListBoxColumn>
+                            <dx:ListBoxColumn FieldName="Estructura" Visible="False">
+                            </dx:ListBoxColumn>
+                        </Columns>
                     </dx:ASPxComboBox>
-                    <asp:SqlDataSource ID="SqlDataSourcePersonal" runat="server" ConnectionString="<%$ ConnectionStrings:BaseDatosSistema %>" SelectCommand="SELECT [IdPersonal], [Personal], [Denominacion] FROM [View_Personal]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSourcePersonal" runat="server" ConnectionString="<%$ ConnectionStrings:BaseDatosSistema %>" SelectCommand="SELECT [IdPersonal], [Denominacion]+' '+ [Personal] AS Personal, [Cargo], [Area], [Estructura] FROM [View_Personal]"></asp:SqlDataSource>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>

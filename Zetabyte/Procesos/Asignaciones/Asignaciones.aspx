@@ -30,17 +30,17 @@
                         <Columns>
                             <dx:GridViewCommandColumn ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
                             </dx:GridViewCommandColumn>
-                            <dx:GridViewDataTextColumn FieldName="IdAsignacion" ReadOnly="True" VisibleIndex="1">
+                            <dx:GridViewDataTextColumn FieldName="IdAsignacion" ReadOnly="True" VisibleIndex="1" Visible="False">
                             </dx:GridViewDataTextColumn>
                             <dx:GridViewDataDateColumn FieldName="FechaAsignacion" VisibleIndex="3">
                             </dx:GridViewDataDateColumn>
-                            <dx:GridViewDataTextColumn FieldName="IdAsignadoPor" VisibleIndex="4">
+                            <dx:GridViewDataTextColumn FieldName="IdAsignadoPor" VisibleIndex="5" Visible="False">
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataTextColumn FieldName="IdAsignadoA" VisibleIndex="5">
+                            <dx:GridViewDataTextColumn FieldName="IdAsignadoA" VisibleIndex="6" Visible="False">
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataTextColumn FieldName="Personal" VisibleIndex="6" ReadOnly="True">
+                            <dx:GridViewDataTextColumn FieldName="Personal" VisibleIndex="2" ReadOnly="True" Caption="Asignado A" Width="500px">
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataTextColumn FieldName="NumeroAsignacion" VisibleIndex="2">
+                            <dx:GridViewDataTextColumn FieldName="NumeroAsignacion" VisibleIndex="4">
                             </dx:GridViewDataTextColumn>
                             <dx:GridViewDataTextColumn FieldName="Estado" VisibleIndex="7">
                             </dx:GridViewDataTextColumn>
@@ -51,7 +51,7 @@
                         </Styles>
 
                     </dx:ASPxGridView>
-                    <asp:SqlDataSource ID="SqlDataSourceAsignaciones" runat="server" ConnectionString="<%$ ConnectionStrings:BaseDatosSistema %>" SelectCommand="SELECT [IdAsignacion], [FechaAsignacion], [IdAsignadoPor], [IdAsignadoA], [Personal], [NumeroAsignacion], [Estado] FROM [View_Asignaciones]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSourceAsignaciones" runat="server" ConnectionString="<%$ ConnectionStrings:BaseDatosSistema %>" SelectCommand="SELECT [IdAsignacion], [FechaAsignacion], [IdAsignadoPor], [IdAsignadoA], [Denominacion]+'  '+ [Personal] AS Personal, [NumeroAsignacion], [Estado] FROM [View_Asignaciones]"></asp:SqlDataSource>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>

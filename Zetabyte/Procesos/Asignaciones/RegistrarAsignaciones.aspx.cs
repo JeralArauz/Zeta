@@ -44,5 +44,18 @@ namespace Zetabyte.Procesos.Asignaciones
                 FG.Controlador_Error(Ex, Page.Response);
             }
         }
+
+        protected void ComboBox_AsignadoA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TextBox_Area.Text = ComboBox_AsignadoA.SelectedItem.GetFieldValue("Area").ToString() + " - " + ComboBox_AsignadoA.SelectedItem.GetFieldValue("Estructura").ToString();
+                ASPxCargo.Text = ComboBox_AsignadoA.SelectedItem.GetFieldValue("Cargo").ToString();
+            }
+            catch (Exception Ex)
+            {
+                FG.Controlador_Error(Ex, Page.Response);
+            }
+        }
     }
 }
