@@ -31,7 +31,7 @@
     <div class="row" style="text-align: right">
         <div class="col-md-8"></div>
         <div class="col-md-4">
-            <dx:ASPxButton ID="BtnVolver" runat="server" Text="Regresar" BackColor="White" ForeColor="#006600" Theme="Material">
+            <dx:ASPxButton ID="BtnVolver" runat="server" Text="Regresar" BackColor="White" ForeColor="#006600" Theme="Material" OnClick="BtnVolver_Click">
                 <Image IconID="navigation_backward_svg_16x16">
                 </Image>
                 <Border BorderColor="#006600" BorderStyle="Double" BorderWidth="1px" />
@@ -40,7 +40,7 @@
     </div>
     <div class="row">
         <div class="col-md-6 btn-group">
-            <dx:ASPxButton ID="Btn_Guardar" Text="Guardar" Theme="Material" runat="server" BackColor="#006699"></dx:ASPxButton>
+            <dx:ASPxButton ID="Btn_Guardar" Text="Guardar" Theme="Material" runat="server" BackColor="#006699" OnClick="Btn_Guardar_Click"></dx:ASPxButton>
             <dx:ASPxButton ID="Btn_Nuevo" Text="Nuevo" Theme="Material" runat="server" BackColor="#006699"></dx:ASPxButton>
             <dx:ASPxButton ID="Btn_Aplicar" Text="Aplicar" Theme="Material" runat="server" BackColor="#006699"></dx:ASPxButton>
             <dx:ASPxButton ID="Btn_Desaplicar" Text="Desaplicar" Theme="Material" runat="server" BackColor="#006699"></dx:ASPxButton>
@@ -121,7 +121,7 @@
     </div>
     <div class="row">
         <div class="col-md-1">Cargo:</div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                 <ContentTemplate>
                     <dx:ASPxTextBox ID="ASPxCargo" Width="100%" runat="server" ReadOnly="true" Theme="Material"></dx:ASPxTextBox>
@@ -131,7 +131,7 @@
     </div>
     <div class="row">
         <div class="col-md-1">Area:</div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                 <ContentTemplate>
                     <dx:ASPxTextBox ID="TextBox_Area" Width="100%" runat="server" ReadOnly="true" Theme="Material"></dx:ASPxTextBox>
@@ -140,6 +140,17 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-md-1">Observaciones:</div>
+        <div class="col-md-8">
+            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                <ContentTemplate>
+                    <dx:ASPxMemo ID="Observaciones" runat="server" Height="71px" Width="100%" Theme="Material"></dx:ASPxMemo>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
         <asp:UpdatePanel ID="UpdatePanel6" runat="server">
             <ContentTemplate>
                 <dx:ASPxGridView ID="GridViewDetalle" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDetalleAsignacion" EnableTheming="True" Theme="Material" Width="970px" ClientInstanceName="gridDetalle" EnableCallBacks="False" KeyFieldName="IDAsignacionDetalle">

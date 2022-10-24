@@ -27,7 +27,7 @@ namespace Zetabyte.Procesos.Asignaciones
         {
             try
             {
-                Session["IdAsignacionBien"] = e.EditingKeyValue.ToString().Split('|')[0];
+                Session["IdAsignacion"] = e.EditingKeyValue.ToString().Split('|')[0];
                 Response.Redirect("RegistrarAsignaciones.aspx");
             }
             catch (Exception Ex)
@@ -40,7 +40,7 @@ namespace Zetabyte.Procesos.Asignaciones
         {
             try
             {
-                Session["IdAsignacionBien"] = "0";
+                Session["IdAsignacion"] = "0";
                 Response.Redirect("RegistrarAsignaciones.aspx");
             }
             catch (Exception Ex)

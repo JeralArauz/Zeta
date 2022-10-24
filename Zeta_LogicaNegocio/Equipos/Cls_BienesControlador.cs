@@ -51,26 +51,26 @@ namespace Zeta_LogicaNegocio.Equipos
         //#endregion
 
         //#region::::::::::::::::::ASIGNACIONES:::::::::::::::::::::::
-        //public string AsignacionBienCrearActualizar(clsAsignacionBien AsignacionBien, string IdentityUser, string UUA)
-        //{
-        //    string Retorno = "";
-        //    /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
-        //    IniciarProcedimiento("SP_AsignacionBienAgregarActualizar");
-        //    /*AGREGAMOS LOS PARAMETROS DEL PROCEDIMIENTO*/
-        //    AgregarParametroProcedimiento("@IdAsignacionBien", SqlDbType.Int, AsignacionBien.IdAsignacionBien);
-        //    AgregarParametroProcedimiento("@IdAsignadoA", SqlDbType.Int, AsignacionBien.IDAsignadoA);
-        //    AgregarParametroProcedimiento("@Fecha_Asignacion", SqlDbType.DateTime, AsignacionBien.Fecha_Asignacion);
-        //    AgregarParametroProcedimiento("@Observaciones", SqlDbType.NVarChar, AsignacionBien.Observaciones);
-        //    AgregarParametroProcedimiento("@Tipo", SqlDbType.NVarChar, AsignacionBien.Tipo);
-        //    AgregarParametroProcedimiento("@UUA", SqlDbType.NVarChar, UUA);
-        //    AgregarParametroProcedimiento("@IdentityUser", SqlDbType.NVarChar, IdentityUser);
-        //    /*EJECUTAMOS EL PROCEDIMIENTO*/
-        //    var result = EjecutarProcedimiento();
-        //    if (result != null)
-        //        Retorno = result.ToString();
+        public string AsignacionCrearActualizar(Cls_Asignacion Asignacion, string IdentityUser, string UUA)
+        {
+            string Retorno = "";
+            /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
+            IniciarProcedimiento("SP_AsignacionAgregarActualizar");
+            /*AGREGAMOS LOS PARAMETROS DEL PROCEDIMIENTO*/
+            AgregarParametroProcedimiento("@IdAsignacion", SqlDbType.Int, Asignacion.IdAsignacion);
+            AgregarParametroProcedimiento("@IdAsignadoA", SqlDbType.Int, Asignacion.IDAsignadoA);
+            AgregarParametroProcedimiento("@Fecha_Asignacion", SqlDbType.DateTime, Asignacion.Fecha_Asignacion);
+            AgregarParametroProcedimiento("@Observaciones", SqlDbType.NVarChar, Asignacion.Observaciones);
+            AgregarParametroProcedimiento("@IdentityUser", SqlDbType.NVarChar, IdentityUser);
+            AgregarParametroProcedimiento("@UUA", SqlDbType.NVarChar, UUA);
+            /*EJECUTAMOS EL PROCEDIMIENTO*/
+            var result = EjecutarProcedimiento();
+            if (result != null)
+                Retorno = result.ToString();
 
-        //    return Retorno;
-        //}
+            return Retorno;
+        }
+
         //public void AsignacionBienAplicar(int IdAsignacionBien, string IdentityUser, string UUA)
         //{
         //    /*PREPARAMOS EL PROCEDIMIENTO A EJECUTAR*/
